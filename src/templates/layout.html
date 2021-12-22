@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja de recuerdos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/static/icon/favico.ico">
+    <link rel="apple-touch-icon" href="/static/icon/favico-webpage.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  </head>
+  <style>
+    body{
+      background-color: #f8f9fa;
+    }
+  </style>
+  <script>
+    function load(){
+      if (!( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )) {
+          //window.location.replace("{{ url_for('nocompatible_device') }}");
+        }
+    }
+    
+    window.load = load();
+  </script>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #f2f2f2bd !important;">
+        <img src="/static/icon/favico.ico" class="navbar-brand img-fluid" width="70" height="70" alt="mi_kokoro">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{url_for('home',)}}">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('poemas') }}">Poemas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('galeria') }}">Galería</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Detallitos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('gift') }}">Flor</a>
+                <a class="dropdown-item" href="{{ url_for('heart') }}">Corazón</a>
+                <!-- <a class="dropdown-item" href="{{ url_for('akaza') }}">Prueba, no abrir.</a> -->
+              </div>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('gift') }}">Flor para ti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('heart') }}">Corazón para ti</a>
+            </li> -->
+          </ul>
+        </div>
+      </nav>
+      {% block content %}
+      {% endblock %}
+
+      <footer class="blockquote-footer text-center">Actualizado 01-Octubre-2021</footer>
+      <footer class="blockquote-footer text-center">©Página solo disponible para el amor de mi vida.</footer>
+</body>
+</html>
